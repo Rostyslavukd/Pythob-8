@@ -1,0 +1,25 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+
+# Завантажимо набір даних
+data_path = 'C:\\Users\\classuser201\\Downloads\\GoogleApps.csv'
+google_apps_df = pd.read_csv(data_path)
+
+
+# Підрахуємо кількість додатків в кожній категорії
+category_counts = google_apps_df['Category'].value_counts()
+
+
+# Створимо стовпчикову діаграму
+plt.figure(figsize=(10, 6))
+category_counts.plot(kind='bar', color='skyblue')
+plt.title('Розподіл категорій додатків')
+plt.xlabel('Категорія')
+plt.ylabel('Кількість додатків')
+plt.xticks(rotation=45, ha='right')
+plt.tight_layout()
+
+
+# Показати діаграму
+plt.show()
